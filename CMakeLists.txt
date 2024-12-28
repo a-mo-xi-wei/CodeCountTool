@@ -9,19 +9,20 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(Qt6 REQUIRED COMPONENTS Widgets UiTools)
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 file(GLOB SOURCE_CPP ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
 file(GLOB SOURCE_H ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
 
 
-set(SOURCE_FILE WIN32
-        ${SOURCE_CPP}
-        ${SOURCE_H}
-        CountCode.ui
+set(SOURCE_FILE
+    ${SOURCE_CPP}
+    ${SOURCE_H}
+    CountCode.ui
+    res.qrc
 )
 
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILE})
 
-target_link_libraries(${PROJECT_NAME} Qt6::Widgets Qt6::UiTools)
+target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
