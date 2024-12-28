@@ -11,18 +11,15 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-file(GLOB SOURCE_CPP ${CMAKE_CURRENT_SOURCE_DIR}/*.cpp)
-file(GLOB SOURCE_H ${CMAKE_CURRENT_SOURCE_DIR}/*.h)
-
-
 set(SOURCE_FILE
-    ${SOURCE_CPP}
-    ${SOURCE_H}
+    CountCode.h
+    CountCode.cpp
     CountCode.ui
     res.qrc
 )
 
+add_subdirectory(RippleButton)
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILE})
 
-target_link_libraries(${PROJECT_NAME} Qt6::Widgets)
+target_link_libraries(${PROJECT_NAME} Qt6::Widgets RippleButton)
