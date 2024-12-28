@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
-        <file>Res/MaterialDark</file>
+        <file>Res/style.css</file>
+        <file>Res/ico.svg</file>
     </qresource>
 </RCC>
