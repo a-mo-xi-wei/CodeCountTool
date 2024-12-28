@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 set(SOURCE_FILE
+    main.cpp
     CountCode.h
     CountCode.cpp
     CountCode.ui

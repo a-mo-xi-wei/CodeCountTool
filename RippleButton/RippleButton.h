@@ -14,15 +14,15 @@ class RippleButton : public QToolButton
 public:
     explicit RippleButton(QWidget *parent = Q_NULLPTR); // 构造函数
 
-    void setSpeed(const int& timeinitval); // 设置定时器时间间隔，控制填充速度
+    void setSpeed(const int& timeinterval) const; // 设置定时器时间间隔，控制填充速度
 
-    void setFillColor(const QColor &fillcolor); // 设置填充颜色
+    void setFillColor(const QColor& fillcolor); // 设置填充颜色
 
-    void setRadius(int radius_); // 设置圆角半径
+    void setRadius(const int& radius_); // 设置圆角半径
 
     void setMyIcon(const QIcon &ico); //设置按钮图标
 
-    void setBlurRadius(const int& radius);//设置阴影的模糊程度
+    void setBlurRadius(const int& radius) const;//设置阴影的模糊程度
 
 protected:
     void enterEvent(QEnterEvent *event) override; // 重写鼠标进入事件

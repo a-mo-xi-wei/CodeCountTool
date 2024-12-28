@@ -6,6 +6,7 @@
 #include<QFileDialog>
 #include<QTextStream>
 #include<QFile>
+#include<QToolButton>
 #include<QPainter>
 
 CountCode::CountCode(QWidget *parent) : QWidget(parent), ui(new Ui::CountCode)
@@ -21,9 +22,9 @@ CountCode::CountCode(QWidget *parent) : QWidget(parent), ui(new Ui::CountCode)
         }
     }
     this->initForm();
-    connect(ui->btnOpenFile,&QPushButton::clicked,this,&CountCode::onBtnOpenFileClicked);
-    connect(ui->btnOpenPath,&QPushButton::clicked,this,&CountCode::onBtnOpenPathClicked);
-    connect(ui->btnClear,&QPushButton::clicked,this,&CountCode::onBtnClearClicked);
+    connect(ui->btnOpenFile,&QToolButton::toggled,this,&CountCode::onBtnOpenFileClicked);
+    connect(ui->btnOpenPath,&QToolButton::toggled,this,&CountCode::onBtnOpenPathClicked);
+    connect(ui->btnClear,&QToolButton::toggled,this,&CountCode::onBtnClearClicked);
     connect(ui->txtFilter, &QLineEdit::editingFinished, this, &CountCode::onEditingFinished);
     connect(ui->dirFilter, &QLineEdit::editingFinished, this, &CountCode::onEditingFinished);
     ui->btnClear->clicked();
@@ -34,7 +35,9 @@ CountCode::~CountCode()
     delete ui;
 }
 
-void CountCode::initForm() const {
+void CountCode::initForm() {
+    this->setWindowIcon(QIcon(QStringLiteral(":/Res/ico.svg")));
+
     QStringList headText;
     headText << "文件名" << "类型" << "大小" << "总行数" << "代码行数" << "注释行数" << "空白行数" << "路径";
     QList<int> columnWidth;
@@ -83,6 +86,17 @@ void CountCode::initForm() const {
 #if (QT_VERSION > QT_VERSION_CHECK(4,7,0))
     ui->txtFilter->setPlaceholderText("中间空格隔开,例如 *.h *.cpp *.c");
 #endif
+
+    //设置按钮
+    ui->btnOpenFile->setRadius(6);
+    ui->btnOpenPath->setRadius(6);
+    ui->btnClear->setRadius(6);
+    ui->btnOpenFile->setBlurRadius(2);
+    ui->btnOpenPath->setBlurRadius(2);
+    ui->btnClear->setBlurRadius(2);
+    ui->btnOpenFile->setFillColor(QColor(QStringLiteral("#DDDDDD")));
+    ui->btnOpenPath->setFillColor(QColor(QStringLiteral("#DDDDDD")));
+    ui->btnClear->setFillColor(QColor(QStringLiteral("#DDDDDD")));
 }
 
 bool CountCode::checkFile(const QString &fileName) const {

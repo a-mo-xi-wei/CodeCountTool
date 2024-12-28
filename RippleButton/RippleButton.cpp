@@ -25,18 +25,18 @@ RippleButton::RippleButton(QWidget* parent)
     this->setGraphicsEffect(this->m_effect.get());
 }
 
-void RippleButton::setSpeed(const int &timeinitval) {
-    timer->setInterval(timeinitval);
+void RippleButton::setSpeed(const int &timeinterval) const {
+    this->timer->setInterval(timeinterval);
 }
 
 void RippleButton::setFillColor(const QColor& fillcolor)
 {
-    fill_color = fillcolor;
+    this->fill_color = fillcolor;
 }
 
-void RippleButton::setRadius(int radius_)
+void RippleButton::setRadius(const int& radius_)
 {
-    frame_radius = radius_;
+    this->frame_radius = radius_;
 }
 
 void RippleButton::setMyIcon(const QIcon &ico) {
@@ -44,8 +44,8 @@ void RippleButton::setMyIcon(const QIcon &ico) {
     this->setIcon(this->m_ico);
 }
 
-void RippleButton::setBlurRadius(const int &radius) {
-    m_effect->setBlurRadius(radius);
+void RippleButton::setBlurRadius(const int &radius) const {
+    this->m_effect->setBlurRadius(radius);
 }
 
 void RippleButton::enterEvent(QEnterEvent* event)

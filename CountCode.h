@@ -16,7 +16,7 @@ public:
     ~CountCode();
 
 private:
-    void initForm() const;
+    void initForm();
 
     bool checkFile(const QString &fileName) const;
 
