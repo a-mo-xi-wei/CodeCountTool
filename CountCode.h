@@ -4,33 +4,45 @@
 #include <QWidget>
 
 namespace Ui {
-class CountCode;
+    class CountCode;
 }
 
-class CountCode : public QWidget
-{
+class CountCode : public QWidget {
     Q_OBJECT
 
 public:
     explicit CountCode(QWidget *parent = 0);
+
     ~CountCode();
+
+private:
+    void initForm() const;
+
+    bool checkFile(const QString &fileName) const;
+
+    bool checkDir(const QString &dirName) const;
+
+    void countCode(const QString &dirPath);
+
+    void countCode(const QStringList &files);
+
+    void countCode(const QString &fileName, int &lineCode, int &lineBlank, int &lineNotes);
+
+protected:
+    void paintEvent(QPaintEvent *event) override;
+
+private slots:
+    void onBtnOpenFileClicked();
+
+    void onBtnOpenPathClicked();
+
+    void onBtnClearClicked();
+
+    void onEditingFinished();
 
 private:
     Ui::CountCode *ui;
     QStringList listFile;
-
-private:
-    void initForm();
-    bool checkFile(const QString &fileName);
-    bool checkDir(const QString& dirName);
-    void countCode(const QString &filePath);
-    void countCode(const QStringList &files);
-    void countCode(const QString &fileName, int &lineCode, int &lineBlank, int &lineNotes);
-
-private slots:
-    void on_btnOpenFile_clicked();
-    void on_btnOpenPath_clicked();
-    void on_btnClear_clicked();
 };
 
 #endif // OUNTCODE_H
