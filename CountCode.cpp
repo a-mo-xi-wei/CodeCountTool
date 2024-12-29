@@ -22,9 +22,9 @@ CountCode::CountCode(QWidget *parent) : QWidget(parent), ui(new Ui::CountCode)
         }
     }
     this->initForm();
-    connect(ui->btnOpenFile,&QToolButton::toggled,this,&CountCode::onBtnOpenFileClicked);
-    connect(ui->btnOpenPath,&QToolButton::toggled,this,&CountCode::onBtnOpenPathClicked);
-    connect(ui->btnClear,&QToolButton::toggled,this,&CountCode::onBtnClearClicked);
+    connect(ui->btnOpenFile,&QToolButton::clicked,this,&CountCode::onBtnOpenFileClicked);
+    connect(ui->btnOpenPath,&QToolButton::clicked,this,&CountCode::onBtnOpenPathClicked);
+    connect(ui->btnClear,&QToolButton::clicked,this,&CountCode::onBtnClearClicked);
     connect(ui->txtFilter, &QLineEdit::editingFinished, this, &CountCode::onEditingFinished);
     connect(ui->dirFilter, &QLineEdit::editingFinished, this, &CountCode::onEditingFinished);
     ui->btnClear->clicked();
