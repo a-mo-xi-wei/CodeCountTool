@@ -36,7 +36,7 @@ CountCode::~CountCode()
 }
 
 void CountCode::initForm() {
-    this->setWindowIcon(QIcon(QStringLiteral(":/Res/ico.svg")));
+    this->setWindowIcon(QIcon(QStringLiteral(":/Res/icon.ico")));
 
     QStringList headText;
     headText << "文件名" << "类型" << "大小" << "总行数" << "代码行数" << "注释行数" << "空白行数" << "路径";
