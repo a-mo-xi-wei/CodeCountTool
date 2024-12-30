@@ -17,6 +17,7 @@ set(SOURCE_FILE WIN32
     CountCode.cpp
     CountCode.ui
     res.qrc
+    Res/titleIcon.rc
 )
 
 add_subdirectory(RippleButton)
